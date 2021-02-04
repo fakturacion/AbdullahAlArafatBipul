@@ -22,17 +22,9 @@ odoo.define('custom_pos.screens', function (require) {
                 ev.preventDefault();
                 var product = self.pos.db.get_product_by_id(this.dataset.productId);
                 options.click_product_action(product);
+                // $(".selected-mode").focus();
+                // $(".numpad").focus();
             };
-        },
-        renderElement: function() {
-            this._super();
-
-            var list_container = this.el.querySelector('.product-list');
-            for(var i = 0, len = this.product_list.length; i < len; i++){
-                var product_node = this.render_product(this.product_list[i]);
-                product_node.addEventListener('keypress',this.keypress_product_handler);
-                list_container.appendChild(product_node);
-            }
         },
     });
 
